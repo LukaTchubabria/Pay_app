@@ -1,21 +1,25 @@
 cars = {
     "honda": 3000,
-    "Hyundai": 3000,
-    "BMW": 4000,
-    "Audi": 4500,
-    "Bentley": 100000,
+    "hyundai": 3000,
+    "bmw": 4000,
+    "audi": 4500,
+    "bentley": 100000,
 }
-# For loop
-# Price = (cars.values())
-for car in enumerate(cars):
-    print(f'{car} ')
 
-name = input("Car's name: ")
+for num, (name, price) in enumerate(cars.items(), 1):
+    print(f'{num}) {name}: {price}$')
+
+carname = input("Car's name: ")
 quantity = input("Quantity: ")
-x = float(cars[name]) * float(quantity)
+x = float(cars[carname.lower()]) * float(quantity)
 
 print(f"{x} $")
 
-pay = input("Do you want to pay? y/n")
-if pay == "y":
+pay = input("Do you want to pay? [Yes/No]")
+
+if pay.lower() == "yes":
     print("thanks")
+elif pay.lower() == "no":
+    print('Ok, stop')
+else:
+    print('SORRY')
