@@ -9,17 +9,20 @@ cars = {
 for num, (name, price) in enumerate(cars.items(), 1):
     print(f'{num}) {name}: {price}$')
 
-carname = input("Car's name: ")
-quantity = input("Quantity: ")
-x = float(cars[carname.lower()]) * float(quantity)
+while True:
+    carname = input("Car's name: ")
 
-print(f"{x} $")
+    if carname in cars:
+        quantity = input("Quantity: ")
+        x = float(cars[carname.lower()]) * float(quantity)
 
-pay = input("Do you want to pay? [Yes/No]")
+        print(f"{x} $")
 
-if pay.lower() == "yes":
-    print("thanks")
-elif pay.lower() == "no":
-    print('Ok, stop')
-else:
-    print('SORRY')
+        pay = input("Do you want to pay? [Yes/No]")
+
+        if pay.lower() == "yes":
+            print("thanks")
+        elif pay.lower() == "no":
+            print('Ok, stop')
+        else:
+            carname = input("Car's name: ")
